@@ -10,7 +10,6 @@ mkdir -p /home/$SFTP_USER
 mkdir -p /home/$SFTP_USER/upload
 
 chmod 777 -R /home/$SFTP_USER
-chown -R sftpupload:users /home/$SFTP_USER
 
 if [ -n "$SFTP_PASSWORD" ]; then
     echo "$SFTP_USER:$SFTP_PASSWORD" | chpasswd $chpasswdOptions
