@@ -2,7 +2,7 @@
 set -e
 
 useradd --no-user-group $SFTP_USER
-#mkdir -p /home/$SFTP_USER/.ssh
+mkdir -p /home/$SFTP_USER
 #touch /home/$SFTP_USER/.ssh/authorized_keys
 chmod 777 -R /home/$SFTP_USER
 
