@@ -4,6 +4,7 @@ set -e
 # replace uid with the uid the container is running under
 sed s/1000/`id -u`/g /etc/passwd > /tmp/passwd
 cat /tmp/passwd > /etc/passwd
+echo -e "thispasswordneedstobechanged\n$SFTP_PASSWORD\n$SFTP_PASSWORD" | passwd
 
 # Set Host Keys
 if [ -n "$SSH_HOST_ED25519_KEY" ]; then
