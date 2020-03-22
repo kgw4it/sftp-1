@@ -21,7 +21,7 @@ fi
 #     chmod 600 /home/$SFTP_USER/.ssh/
 # fi
 
-mkdir mkdir -p /home/$SFTP_USER/upload
+mkdir -p /home/$SFTP_USER/upload
 chmod 755 /etc/shadow
 chmod 777 /etc/passwd
 # chmod 700 /home/${SFTP_USER}/.ssh/authorized_keys
