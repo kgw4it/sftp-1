@@ -6,8 +6,9 @@ sed s/1000/`id -u`/g /etc/passwd > /tmp/passwd
 cat /tmp/passwd > /etc/passwd
 echo -e "thispasswordneedstobechanged\n$SFTP_PASSWORD\n$SFTP_PASSWORD" | passwd
 mkdir /home/$SFTP_USER/.ssh
-chmod 600 /home/$SFTP_USER/.ssh
 echo -e $SFTP_PUBLIC_KEY > /home/$SFTP_USER/.ssh/authorized_keys
+chmod 600 /home/$SFTP_USER/.ssh
+chmod 700 /home/$SFTP_USER/.ssh/authorized_keys
 
 # Set Host Keys
 if [ -n "$SSH_HOST_ED25519_KEY" ]; then
