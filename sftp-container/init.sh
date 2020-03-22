@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-useradd --no-user-group $SFTP_USER
+useradd --no-user-group -g users $SFTP_USER
 
 chmod 755 /etc/shadow
 chmod 777 /etc/passwd
