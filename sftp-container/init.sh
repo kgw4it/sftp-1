@@ -2,9 +2,15 @@
 set -e
 
 useradd --no-user-group $SFTP_USER
+
+chmod 755 /etc/shadow
+chmod 777 /etc/passwd
+
 mkdir -p /home/$SFTP_USER
-#touch /home/$SFTP_USER/.ssh/authorized_keys
+mkdir -p /home/$SFTP_USER/upload
+
 chmod 777 -R /home/$SFTP_USER
+chown -R sftpupload:users /home/$SFTP_USER
 
 if [ -n "$SFTP_PASSWORD" ]; then
     echo "$SFTP_USER:$SFTP_PASSWORD" | chpasswd $chpasswdOptions
@@ -20,10 +26,6 @@ fi
 #     chmod 700 /home/$SFTP_USER/.ssh/authorized_keys
 #     chmod 600 /home/$SFTP_USER/.ssh/
 # fi
-
-mkdir -p /home/$SFTP_USER/upload
-chmod 755 /etc/shadow
-chmod 777 /etc/passwd
 # chmod 700 /home/${SFTP_USER}/.ssh/authorized_keys
 # chmod 600 /home/${SFTP_USER}/.ssh/
 # chown -R ${SFTP_USER}:${SFTP_USER} /home/${SFTP_USER}/.ssh
