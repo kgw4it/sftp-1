@@ -4,7 +4,7 @@ set -e
 useradd --no-user-group $SFTP_USER
 mkdir -p /home/$SFTP_USER/.ssh
 touch /home/$SFTP_USER/.ssh/authorized_keys
-chmod 755 /home/$SFTP_USER
+chmod 777 -R /home/$SFTP_USER
 
 if [ -n "$SFTP_PASSWORD" ]; then
     echo "$SFTP_USER:$SFTP_PASSWORD" | chpasswd $chpasswdOptions
